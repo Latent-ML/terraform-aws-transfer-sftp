@@ -98,6 +98,7 @@ resource "aws_transfer_ssh_key" "default" {
 resource "aws_eip" "sftp" {
   count = local.enabled && var.eip_enabled ? length(var.subnet_ids) : 0
 
+
   domain = local.is_vpc == true ? "vpc" : "standard"
 
   tags = module.this.tags
